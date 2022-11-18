@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from . import views
+from . import settings
+from django.contrib.staticfiles.urls import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', views.about),
     path('home/', views.home),
     path('reverse/', views.reverse, name ='reversed'),
-    path('', include('hello_world.urls')),
-
+    path('', include('project.urls')),
+    path('blog/', include('blog.urls')),
 ]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
