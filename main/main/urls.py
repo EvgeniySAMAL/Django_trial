@@ -26,5 +26,6 @@ urlpatterns = [
     path('reverse/', views.reverse, name ='reversed'),
     path('', include('project.urls')),
     path('blog/', include('blog.urls')),
+
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
